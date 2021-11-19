@@ -1,0 +1,18 @@
+@import url(https://code.s3.yandex.net/web-code/normalize.css);
+@import url(../styles/fonts.css);
+
+@import url(../current/blocks/centered-block/centered-block.css);
+
+@import url(../current/blocks/header/header.css);
+
+@import url(../current/blocks/profile/__avatar/profile__avatar.css);
+@import url(../current/blocks/profile/__profile-info/profile__profile-info.css);
+@import url(../current/blocks/profile/__add-button/profile__add-button.css);
+
+@import url(../current/blocks/elements/__mask-group/elements__mask-group.css);
+@import url(../current/blocks/elements/__group/elements__group.css);
+@import url(../current/blocks/elements/__element/elements__element.css);
+
+@import url(../current/blocks/footer/footer.css);
+
+
