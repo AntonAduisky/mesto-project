@@ -16,4 +16,4 @@ ___
 - Адуйский Антон 
 ---
 ####Ссылка на проект: 
-- 
+-  https://antonaduisky.github.io/mesto-project/
