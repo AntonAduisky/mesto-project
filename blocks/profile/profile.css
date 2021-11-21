@@ -1,0 +1,17 @@
+.profile {
+    max-width: 880px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 120px 336px auto;
+    gap: 30px;
+    padding-top: 40px;
+    box-sizing: border-box;
+}
+
+@media (max-width: 700px) {
+    .profile {
+        max-width: 282px;
+        gap: 1px;
+        grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+    }
+}

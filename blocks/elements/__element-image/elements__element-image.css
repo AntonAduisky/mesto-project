@@ -1,0 +1,6 @@
+.elements__element-image {
+    max-width: 282px;
+    width: 100%;
+    display: block; 
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}

@@ -1,18 +1,35 @@
-@import url(https://code.s3.yandex.net/web-code/normalize.css);
+@import url(../styles/normalize.css);
 @import url(../styles/fonts.css);
 
-@import url(../current/blocks/centered-block/centered-block.css);
+@import url(../blocks/page/page.css);
 
-@import url(../current/blocks/header/header.css);
+@import url(../blocks/popup/popup.css);
+@import url(../blocks/popup/_opened/popup_opened.css);
+@import url(../blocks/popup/__close-button/popup__close-button.css);
+@import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__content/popup__content.css);
+@import url(../blocks/popup/__title/popup__title.css);
+@import url(../blocks/popup/__save-button/popup__save-button.css);
+@import url(../blocks/popup/__username/popup__username.css);
+@import url(../blocks/popup/__item/popup__item.css);
 
-@import url(../current/blocks/profile/__avatar/profile__avatar.css);
-@import url(../current/blocks/profile/__profile-info/profile__profile-info.css);
-@import url(../current/blocks/profile/__add-button/profile__add-button.css);
+@import url(../blocks/header/header.css);
+@import url(../blocks/header/__logo/header__logo.css);
 
-@import url(../current/blocks/elements/__mask-group/elements__mask-group.css);
-@import url(../current/blocks/elements/__group/elements__group.css);
-@import url(../current/blocks/elements/__element/elements__element.css);
+@import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__photo/profile__photo.css);
+@import url(../blocks/profile/__profile-info/profile__profile-info.css);
+@import url(../blocks/profile/__edit-button/profile__edit-button.css);
+@import url(../blocks/profile/__add-button/profile__add-button.css);
+@import url(../blocks/profile/__title/profile__title.css);
+@import url(../blocks/profile/__subtitle/profile__subtitle.css);
 
-@import url(../current/blocks/footer/footer.css);
+@import url(../blocks/elements/elements.css);
+@import url(../blocks/elements/elements__element-image/elements__element-image.css);
+@import url(../blocks/elements/__element-info/elements__element-info.css);
+@import url(../blocks/elements/__element-title/elements____element-title.css);
+@import url(../blocks/elements/__element-like/elements__element-like.css);
+@import url(../blocks/elements/__element/elements__element.css);
 
-
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__logo/footer__logo.css);

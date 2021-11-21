@@ -1,0 +1,16 @@
+.popup__item{
+font-size: 14px;
+border:none;
+border-bottom: 1px solid rgba(0,0,0,0.2);
+padding:0;
+padding-bottom: 13px;
+width: 358px;
+outline: none;
+color:#000;
+}
+
+@media(max-width:700px){
+    .popup__item{
+        width: 238px;
+    }
+}

@@ -1,0 +1,22 @@
+.popup__content {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    max-width: 430px;
+    padding: 36px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.popup__content:last-child .popup__content:last-child {
+    align-items: center;
+}
+
+@media (max-width: 700px) {
+    .popup__content {
+        max-width: 282px;
+        padding: 25px 20px;
+        align-items: center;
+    }
+}

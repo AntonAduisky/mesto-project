@@ -1,0 +1,7 @@
+.popup__username{
+    padding-bottom: 30px;
+    color:#000;
+}
+.popup__username:first-of-type{
+    padding-bottom: 0;
+}

@@ -1,4 +1,23 @@
 .header {
-
+    max-width: 880px;
+    width:100%;
+    display: flex;
+    justify-content: flex-start;
+    width:100%;
+    margin:0;
+    padding:45px 0 41px;
+    border-bottom: 1px solid #545454;
+    box-sizing: border-box;
+}
+@media(max-width:900px) {
+    .header{
+     padding-left: 19px;
+     padding-right: 19px;
+    }
 }
 
+@media(max-width:700px) {
+    .header{
+        padding:28px 27px 31.5px;
+    }
+}

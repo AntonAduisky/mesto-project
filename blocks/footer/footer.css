@@ -1,14 +1,17 @@
 .footer {
- 
+  max-width: 880px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  padding-bottom: 60px;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 900px) {
   .footer {
-   
-  }
-}
-@media (min-width: 1024px) {
-  .footer {
-  
+      font-size: 14px;
+      padding-bottom: 36px;
   }
 }

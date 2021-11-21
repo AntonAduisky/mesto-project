@@ -1,0 +1,13 @@
+.footer__logo {
+    font-weight: 400;
+    font-size: 18px;
+    color: #545454;
+    margin: 0;
+}
+
+@media(max-width:900px) {
+    .footer__logo {
+        font-size: 14px;
+        padding-left: 19px;
+    }
+}

@@ -1,0 +1,18 @@
+.profile__subtitle {
+    font-weight: 400;
+    font-size: 18px;
+    color: #ffffff;
+    margin: 0;
+    padding-bottom: 25px;
+}
+
+@media (max-width: 700px) {
+    .profile__subtitle {
+        max-width: 282px;
+        font-size: 14px;
+        padding-bottom: 36px;
+        font-size: 14px;
+        justify-self: end;
+        margin-right: 14px;
+    }
+}
