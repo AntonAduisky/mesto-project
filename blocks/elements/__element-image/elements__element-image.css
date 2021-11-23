@@ -2,7 +2,6 @@
     max-width: 282px;
     width: 100%;
     object-fit: cover;
-    background-position: right;
 }
 @media (max-width: 900px) {
     .elements__element-image {
