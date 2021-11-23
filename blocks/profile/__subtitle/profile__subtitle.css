@@ -4,15 +4,22 @@
     color: #ffffff;
     margin: 0;
     padding-bottom: 25px;
+    max-width: 336px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 @media (max-width: 700px) {
     .profile__subtitle {
-        max-width: 282px;
+        max-width: 175px;
         font-size: 14px;
         padding-bottom: 36px;
         font-size: 14px;
         justify-self: end;
         margin-right: 14px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
     }
 }

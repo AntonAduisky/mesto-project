@@ -1,6 +1,19 @@
 .elements__element {
     max-width: 282px;
+    width: 100%;
     overflow: hidden;
     background-color: #fff;
     border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+    .elements__element {
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 600px) {
+    .elements__element {
+        max-width: 282px;
+    }
 }

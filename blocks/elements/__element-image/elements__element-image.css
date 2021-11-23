@@ -1,6 +1,16 @@
 .elements__element-image {
     max-width: 282px;
     width: 100%;
-    display: block; 
-    transform: matrix(-1, 0, 0, 1, 0, 0);
+    object-fit: cover;
+    background-position: right;
+}
+@media (max-width: 900px) {
+    .elements__element-image {
+        max-width: 320px;
+    }
+}
+@media (max-width: 600px) {
+    .elements__element-image {
+        max-width: 282px;
+    }
 }

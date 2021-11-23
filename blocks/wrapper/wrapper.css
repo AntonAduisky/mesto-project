@@ -1,0 +1,9 @@
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+/*Это было необходимо чтобы прижать footer к низу страницы,таким образом предусмотрел удаление section из main,а так же переполнение контентом*/

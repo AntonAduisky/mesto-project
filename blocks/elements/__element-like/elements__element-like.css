@@ -9,12 +9,12 @@
     width: 22px;
     align-self: center;
     cursor: pointer;
-    transition: opacity 0.2s linear;
-    -webkit-transition: opacity 0.2s linear;
+    transition: opacity 0.1s linear;
+    -webkit-transition: opacity 0.1s linear;
 }
 
 .elements__element-like:hover {
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
 .elements__element-like:active {
