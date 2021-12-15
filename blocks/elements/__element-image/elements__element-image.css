@@ -1,15 +1,15 @@
 .elements__element-image {
-    max-width: 282px;
-    width: 100%;
+    width: 282px;
+    height: 282px;
     object-fit: cover;
 }
 @media (max-width: 900px) {
     .elements__element-image {
-        max-width: 320px;
+        width: 320px;
     }
 }
 @media (max-width: 600px) {
     .elements__element-image {
-        max-width: 282px;
+        width: 282px;
     }
 }

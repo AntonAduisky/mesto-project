@@ -21,52 +21,20 @@
                         <button type="button" class="profile__edit-button"></button>
                         <p class="profile__subtitle">Исследователь океана</p>
                     </div>
-                    <button type="button" class="profile__add-button"></button>
+                    <button type="submit" class="profile__add-button"></button>
                 </section>
 
                 <section class="elements">
-                    <div class="elements__element">
-                        <img src="./images/Cherkesia.jpg" alt="Карачаевск" class="elements__element-image" />
-                        <div class="elements__element-info">
-                            <h2 class="elements__element-title">Карачаевск</h2>
-                            <button type="button" class="elements__element-like"></button>
+                    <template id="cardTemplate">
+                        <div class="elements__element">
+                            <button class="elements__element-delete"></button>
+                            <img src="" alt="" class="elements__element-image" />
+                            <div class="elements__element-info">
+                                <h2 class="elements__element-title"></h2>
+                                <button type="button" class="elements__element-like"></button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="elements__element">
-                        <img src="./images/Elbrus.jpg" alt="Гора Эльбрус" class="elements__element-image" />
-                        <div class="elements__element-info">
-                            <h2 class="elements__element-title">Гора Эльбрус</h2>
-                            <button type="button" class="elements__element-like"></button>
-                        </div>
-                    </div>
-                    <div class="elements__element">
-                        <img src="./images/Dombai.jpg" alt="Домбай" class="elements__element-image" />
-                        <div class="elements__element-info">
-                            <h2 class="elements__element-title">Домбай</h2>
-                            <button type="button" class="elements__element-like"></button>
-                        </div>
-                    </div>
-                    <div class="elements__element">
-                        <img src="./images/Elbrus.jpg" alt="Гора Эльбрус" class="elements__element-image" />
-                        <div class="elements__element-info">
-                            <h2 class="elements__element-title">Гора Эльбрус</h2>
-                            <button type="button" class="elements__element-like"></button>
-                        </div>
-                    </div>
-                    <div class="elements__element">
-                        <img src="./images/Dombai.jpg" alt="Домбай" class="elements__element-image" />
-                        <div class="elements__element-info">
-                            <h2 class="elements__element-title">Домбай</h2>
-                            <button type="button" class="elements__element-like"></button>
-                        </div>
-                    </div>
-                    <div class="elements__element">
-                        <img src="./images/Cherkesia.jpg" alt="карачаевск" class="elements__element-image" />
-                        <div class="elements__element-info">
-                            <h2 class="elements__element-title">Карачаево-Черкесия</h2>
-                            <button type="button" class="elements__element-like"></button>
-                        </div>
-                    </div>
+                    </template>
                 </section>
             </main>
 
@@ -74,17 +42,41 @@
                 <p class="footer__logo">© 2021 Mesto Russia</p>
             </footer>
 
-            <section class="popup">
+            <section class="popup" id="profile-popup">
                 <div class="popup__container">
-                    <button class="popup__close-button"></button>
-                    <form name="popup-form" class="edit-form">
+                    <button type="button" class="popup__close-button"></button>
+                    <form name="popup-form" class="edit-form" data-form="profileButton">
                         <h2 class="edit-form__title">Редактировать профиль</h2>
                         <input name="username" type="text" class="edit-form__item" id="username__title" placeholder="Жак-Ив Кусто" />
                         <input name="activity" type="text" class="edit-form__item" id="username__activity" placeholder="Исследователь океана" />
-                        <button type="button" class="edit-form__save-button">Сохранить</button>
+                        <button type="submit" class="edit-form__save-button">Сохранить</button>
                     </form>
                 </div>
             </section>
+
+            <section class="popup" id="card-popup">
+                <div class="popup__container">
+                    <button type="button" class="popup__close-button"></button>
+                    <form name="popup-form" class="edit-form" data-form="cardButton" id="card-form">
+                        <h2 class="edit-form__title">Новое место</h2>
+                        <input name="card-name" type="text" class="edit-form__item" id="card__name" placeholder="Название" />
+                        <input name="card-image" type="url" class="edit-form__item" id="card__image" placeholder="Ссылка на картнку" />
+                        <button type="submit" class="edit-form__save-button">Создать</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="popup" id="image-popup">
+                <div class="popup__container">
+                    <button type="button" class="popup__close-button"></button>
+                    <figure class="popup__image-container">
+                        <img src="#" alt="#" class="popup__image" />
+                        <figcaption class="popup__image-figcaption"></figcaption>
+                    </figure>
+                </div>
+            </section>
         </div>
+        
+        <script src="./script.js"></script>
     </body>
 </html>

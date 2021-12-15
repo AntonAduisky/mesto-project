@@ -1,4 +1,5 @@
 .popup__close-button {
+    display: flex;
     background-color: transparent;
     width: 32px;
     height: 32px;
