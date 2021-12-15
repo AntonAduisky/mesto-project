@@ -1,6 +1,7 @@
 .elements__element-delete{
     background-image: url(../../../images/Group.svg);
     background-color: transparent;
+    background-repeat: no-repeat;
     border: none;
     position: absolute;
     cursor: pointer;
