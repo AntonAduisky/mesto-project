@@ -61,8 +61,7 @@ function addProfileForm(evt) {
 }
 formElement.addEventListener("submit", addProfileForm);
 
-//закрытие попапов по нажатию на крестик(признаться честно не совсем понял чем предыдущий способ был плох,
-//по-этому если не затруднит хотел бы разобраться в чем принципиальная разница)
+//закрытие попапов по нажатию на крестик
 for (let i = 0; i < closeButton.length; i++) {
     closeButton[i].addEventListener("click", closePopup);
 }
