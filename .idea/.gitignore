@@ -5,5 +5,4 @@
 /httpRequests/
 
 # dependencies
-node_modules
  dist
