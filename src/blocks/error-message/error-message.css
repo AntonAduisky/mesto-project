@@ -1,0 +1,7 @@
+.error-message {
+    color: #ff3333;
+    font-size: 0.8em;
+    transition: .3s;
+    padding: 0;
+    opacity: 0;
+}
