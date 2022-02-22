@@ -2,14 +2,14 @@
     font-weight: 900;
     font-size: 24px;
     color: #000000;
-    padding-bottom: 54px;
+    padding-bottom: 24px;
     margin: 0;
-    
+
 }
 
 @media(max-width:700px) {
     .edit-form__title {
         font-size: 18px;
-        padding-bottom: 75px;
+        padding-bottom: 45px;
     }
 }

@@ -11,6 +11,7 @@
     border: none;
     padding: 0;
     margin-top: 48px;
+    align-self: center;
 }
 
 .edit-form__save-button:hover {

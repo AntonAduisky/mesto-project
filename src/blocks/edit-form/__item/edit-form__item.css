@@ -8,10 +8,7 @@
     width: 358px;
     outline: none;
     color: #000;
-}
-
-.edit-form__item:first-of-type {
-    margin-top: 0;
+    background-color: transparent;
 }
 
 @media (max-width: 700px) {
@@ -20,7 +17,7 @@
     }
 }
 
-.edit-form__item:focus{
+.edit-form__item:focus {
     border-radius: 5px;
     border: 2px solid black;
 }

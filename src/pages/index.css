@@ -47,3 +47,6 @@
 @import url(../blocks/error-message/_visible/error-message_visible.css);
 @import url(../blocks/edit-form/__item/_invalid/edit-form__item_invalid.css);
 @import url(../blocks/edit-form/__save-button/_disabled/edit-form__save-button_disabled.css);
+@import url(../blocks/popup/__label/popup__label.css);
+@import url(../blocks/popup/__error/popup__error.css);
+@import url(../blocks/popup/__error/_visible/popup__error_visible.css);

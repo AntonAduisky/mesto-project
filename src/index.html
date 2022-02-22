@@ -46,14 +46,19 @@
         <section class="popup" id="profile-popup">
             <div class="popup__container">
                 <button type="button" class="popup__close-button"></button>
-                <form name="popup-form" class="edit-form" data-form="profileButton" novalidate>
+                <form name="popupForm" class="edit-form" data-form="profileButton" novalidate>
                     <h2 class="edit-form__title">Редактировать профиль</h2>
-                    <input required name="username" type="text" minlength="2" maxlength="20" class="edit-form__item"
-                        id="username__title" placeholder="Жак-Ив Кусто" />
-                    <span id="error-username__title" class="error-message"></span>
-                    <input required name="activity" type="text" minlength="2" maxlength="20" class="edit-form__item"
-                        id="username__activity" placeholder="Исследователь океана" />
-                    <span id="error-username__activity" class="error-message"></span>
+                    <label for="" class="popup__label">
+                        <input required name="username" type="text" minlength="2" maxlength="20" class="edit-form__item"
+                            id="username__title" placeholder="Жак-Ив Кусто" />
+                        <span id="error-username__title" class="error-message popup__error popup__error_visible"></span>
+                    </label>
+                    <label for="" class="popup__label">
+                        <input required name="activity" type="text" minlength="2" maxlength="20" class="edit-form__item"
+                            id="username__activity" placeholder="Исследователь океана" />
+                        <span id="error-username__activity"
+                            class="error-message popup__error popup__error_visible"></span>
+                    </label>
                     <button type="submit" class="edit-form__save-button">Сохранить</button>
                 </form>
             </div>
@@ -62,17 +67,17 @@
         <section class="popup" id="card-popup">
             <div class="popup__container">
                 <button type="button" class="popup__close-button"></button>
-                <form name="popup-form" class="edit-form" data-form="cardButton" id="card-form" novalidate>
+                <form name="popupForm" class="edit-form" data-form="cardButton" id="card-form" novalidate>
                     <h2 class="edit-form__title">Новое место</h2>
                     <label for="" class="popup__label">
                         <input required name="card-name" type="text" minlength="2" maxlength="20"
                             class="edit-form__item" id="card__name" placeholder="Название" />
-                        <span id="error-card__name" class="error-message"></span>
+                        <span id="error-card__name" class="error-message popup__error popup__error_visible"></span>
                     </label>
                     <label for="" class="popup__label">
-                        <input required name="card-image" type="url" pattern="(www|http:|https:)+[^\s]+[\w]ld"
-                            class="edit-form__item" id="card__image" placeholder="Ссылка на картнку" />
-                        <span id="error-card__image" class="error-message"></span>
+                        <input required name="card-image" type="url" class="edit-form__item" id="card__image"
+                            placeholder="Ссылка на картнку" />
+                        <span id="error-card__image" class="error-message popup__error popup__error_visible"></span>
                     </label>
                     <button type="submit" class="edit-form__save-button">Создать</button>
                 </form>

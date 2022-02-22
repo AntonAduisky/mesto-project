@@ -1,0 +1,9 @@
+.popup__label {
+    box-sizing: border-box;
+    border: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
