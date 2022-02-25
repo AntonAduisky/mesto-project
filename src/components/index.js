@@ -11,7 +11,7 @@ import {
     cardPopup,
     formCard,
     addCardForm,
-    addProfileForm
+    addProfileForm,
 }
 from './modal.js';
 import {

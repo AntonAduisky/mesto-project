@@ -59,7 +59,7 @@
                         <span id="error-username__activity"
                             class="error-message popup__error popup__error_visible"></span>
                     </label>
-                    <button type="submit" class="edit-form__save-button">Сохранить</button>
+                    <button id="profile_button" type="submit" class="edit-form__save-button" disabled>Сохранить</button>
                 </form>
             </div>
         </section>
@@ -67,7 +67,7 @@
         <section class="popup" id="card-popup">
             <div class="popup__container">
                 <button type="button" class="popup__close-button"></button>
-                <form name="popupForm" class="edit-form" data-form="cardButton" id="card-form" novalidate>
+                <form name="popupCardForm" class="edit-form" data-form="cardButton" id="card-form" novalidate>
                     <h2 class="edit-form__title">Новое место</h2>
                     <label for="" class="popup__label">
                         <input required name="card-name" type="text" minlength="2" maxlength="20"
@@ -79,7 +79,7 @@
                             placeholder="Ссылка на картнку" />
                         <span id="error-card__image" class="error-message popup__error popup__error_visible"></span>
                     </label>
-                    <button type="submit" class="edit-form__save-button">Создать</button>
+                    <button id="card_button" type="submit" class="edit-form__save-button" disabled>Создать</button>
                 </form>
             </div>
         </section>

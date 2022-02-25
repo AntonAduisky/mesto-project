@@ -101,5 +101,7 @@ const enableValidation = (config) => {
 
 export {
     validationConfig,
-    enableValidation
+    checkInputValidity,
+    enableValidation,
+    disableButton
 };

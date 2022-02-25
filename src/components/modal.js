@@ -5,6 +5,10 @@ import {
     addCard,
     createCard
 } from './card.js';
+import {
+    disableButton,
+    validationConfig,
+} from './validate.js';
 
 const formElement = document.querySelector(".edit-form");
 const placeInput = document.querySelector("#card__name");
@@ -24,24 +28,16 @@ const imagePopup = document.querySelector("#image-popup");
 const popupFigcaption = imagePopup.querySelector(".popup__image-figcaption");
 const popupPhoto = imagePopup.querySelector(".popup__image");
 
-
-function clearCardForm() {
-    placeInput.value = "";
-    linkInput.value = "";
-    nameInput.value = "";
-    jobInput.value = "";
-};
+const popupCardForm = document.querySelector('#card-form');
+const cardButton = document.querySelector('#card_button');
 
 //добавление новой карточки и закрытие попапа
 function addCardForm(evt) {
     evt.preventDefault();
     addCard(createCard(placeInput.value, linkInput.value));
-    const form = evt.target.getAttribute("data-form");
-    if (form === "cardButton") {
-        closePopup(cardPopup);
-    } else {
-        closePopup(profilePopup);
-    }
+    disableButton(cardButton, validationConfig);
+    popupCardForm.reset();
+    closePopup(cardPopup);
 };
 
 
@@ -50,12 +46,7 @@ function addProfileForm(evt) {
     evt.preventDefault();
     profileTitle.textContent = nameInput.value;
     profileSubtitle.textContent = jobInput.value;
-    const form = evt.target.getAttribute("data-form");
-    if (form === "profileButton") {
-        closePopup(profilePopup);
-    } else {
-        closePopup(cardPopup);
-    }
+    closePopup(profilePopup);
 };
 
 export {
@@ -75,7 +66,7 @@ export {
     imagePopup,
     popupFigcaption,
     popupPhoto,
-    clearCardForm,
+    popupCardForm,
     addCardForm,
     addProfileForm
 };

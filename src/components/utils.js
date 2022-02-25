@@ -1,54 +1,64 @@
 import {
-    clearCardForm,
+    popupCardForm
 } from './modal.js';
 
-const closeButton = document.querySelectorAll(".popup__close-button");
+const closeButtons = document.querySelectorAll(".popup__close-button");
 const wrapper = document.querySelector('.wrapper');
 
-//закрытие попапов на свободное от формы пространство
-function handleClickOutside(evt) {
-    if (evt.target.classList.contains('popup_opened')) {
-        evt.target.classList.remove('popup_opened');
-    };
-};
+const popupActiveClass = 'popup_opened';
 
-
-//закрытие попапов на ESC
-function handleEscDown(evt) {
-    if (evt.keyCode === 27) {
-        const activePopup = document.querySelector('.popup_opened');
-        closePopup(activePopup);
-    };
-};
+const getActivePopup = () => document.querySelector(`.${popupActiveClass}`);
 
 //открытие попапов
 function openPopup(popup) {
-    popup.classList.add('popup_opened');
+    popup.classList.add(popupActiveClass);
     wrapper.addEventListener('click', handleClickOutside);
     document.addEventListener('keydown', handleEscDown);
+    document.addEventListener('click', handleClickCloseButton);
 };
 
 //закрытие попапов
 function closePopup(popup) {
-    popup.classList.remove('popup_opened');
+    popup.classList.remove(popupActiveClass);
     wrapper.removeEventListener('click', handleClickOutside);
     document.removeEventListener('keydown', handleEscDown);
-    clearCardForm()
+    document.removeEventListener('click', handleClickCloseButton);
 };
 
-//закрытие попапов по нажатию на крестик
-for (let i = 0; i < closeButton.length; i++) {
-    closeButton[i].addEventListener('click', function (evt) {
-        const popup = evt.target.closest('.popup');
-        closePopup(popup);
-    });
+//закрытие на свободное от формы пространство
+function handleClickOutside(e) {
+    if (e.target.classList.contains(popupActiveClass)) {
+        closePopup(getActivePopup());
+        popupCardForm.reset();
+    };
 };
+
+//закрытие на ESC
+function handleEscDown(e) {
+    if (e.keyCode === 27) {
+        closePopup(getActivePopup());
+        popupCardForm.reset();
+    };
+};
+
+
+
+
+//закрытие на closeButton
+function handleClickCloseButton() {
+    for (let i = 0; i < closeButtons.length; i++) {
+        closeButtons[i].addEventListener('click', (e) => closePopup(e.target.closest('.popup')));
+    };
+    popupCardForm.reset();
+};
+
+
 
 export {
     handleEscDown,
     handleClickOutside,
     openPopup,
     closePopup,
-    closeButton,
+    closeButtons,
     wrapper
 }; //переношу в index.js

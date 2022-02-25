@@ -1,3 +1,14 @@
+import {
+    popupPhoto,
+    popupFigcaption,
+    imagePopup,
+} from './modal.js'
+
+import {
+    openPopup,
+} from './utils.js';
+
+
 const cardContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector("#cardTemplate").content;
 
