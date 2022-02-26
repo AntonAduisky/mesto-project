@@ -33,13 +33,11 @@ const checkInputValidity = (formElement, inputElement, config) => {
     };
 };
 
-
 // //отключение кнопки и смены ее цвета на серый
 const disableButton = (buttonElement, config) => {
     buttonElement.classList.add(config.buttonDisabledClass);
     buttonElement.disabled = true;
 };
-
 
 //включение кнопки
 const enableButton = (buttonElement, config) => {
@@ -47,14 +45,12 @@ const enableButton = (buttonElement, config) => {
     buttonElement.disabled = false;
 };
 
-
 //перебор всех полей ввода на предмет не валидного инпута
 const hasInvalidInput = (inputList) => {
     return inputList.some(inputElement => {
         return !inputElement.validity.valid;
     });
 };
-
 
 //условие включения кнопки
 const toggleButtonState = (formElement, inputList, config) => {
@@ -66,7 +62,6 @@ const toggleButtonState = (formElement, inputList, config) => {
         enableButton(buttonElement, config);
     }
 };
-
 
 //массив из всех полей ввода 
 const setEventListeners = (formElement, config) => {
@@ -84,8 +79,6 @@ const setEventListeners = (formElement, config) => {
     toggleButtonState(formElement, inputList, config);
 };
 
-
-
 const enableValidation = (config) => {
     const forms = Array.from(document.querySelectorAll(config.formSelector));
 
@@ -98,10 +91,9 @@ const enableValidation = (config) => {
     });
 };
 
-
 export {
     validationConfig,
     checkInputValidity,
     enableValidation,
     disableButton
-};
+}; //в index.js

@@ -1,7 +1,3 @@
-import {
-    popupCardForm
-} from './modal.js';
-
 const closeButtons = document.querySelectorAll(".popup__close-button");
 const wrapper = document.querySelector('.wrapper');
 
@@ -25,34 +21,26 @@ function closePopup(popup) {
     document.removeEventListener('click', handleClickCloseButton);
 };
 
-//закрытие на свободное от формы пространство
+//закрытие на overlay
 function handleClickOutside(e) {
     if (e.target.classList.contains(popupActiveClass)) {
         closePopup(getActivePopup());
-        popupCardForm.reset();
     };
 };
 
 //закрытие на ESC
 function handleEscDown(e) {
-    if (e.keyCode === 27) {
+    if (e.key === 'Escape') {
         closePopup(getActivePopup());
-        popupCardForm.reset();
     };
 };
-
-
-
 
 //закрытие на closeButton
-function handleClickCloseButton() {
-    for (let i = 0; i < closeButtons.length; i++) {
-        closeButtons[i].addEventListener('click', (e) => closePopup(e.target.closest('.popup')));
+function handleClickCloseButton(e) {
+    if (e.target.classList.contains('popup__close-button')) {
+        closePopup(getActivePopup());
     };
-    popupCardForm.reset();
 };
-
-
 
 export {
     handleEscDown,
@@ -61,4 +49,6 @@ export {
     closePopup,
     closeButtons,
     wrapper
-}; //переношу в index.js
+};
+//в index.js
+//в card.js

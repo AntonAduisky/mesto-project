@@ -70,3 +70,5 @@ export {
     addCardForm,
     addProfileForm
 };
+//в index.js
+//в card.js

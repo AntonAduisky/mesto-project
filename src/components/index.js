@@ -1,6 +1,6 @@
 import '../pages/index.css';
 import {
-    openPopup,
+    openPopup
 }
 from './utils.js';
 import {
@@ -12,6 +12,7 @@ import {
     formCard,
     addCardForm,
     addProfileForm,
+    popupCardForm
 }
 from './modal.js';
 import {
@@ -23,7 +24,6 @@ import {
     createCard,
     addCard
 } from './card.js';
-
 
 //массив обьектов карточек отображаемых на странице
 const initialCards = [{
@@ -57,12 +57,8 @@ initialCards.forEach(function (card) {
     return addCard(createCard(card.name, card.link));
 });
 
-
-
 //слушатель событий на кнопке отправки формы
 formElement.addEventListener("submit", addProfileForm);
-
-
 
 //кнопка открытия попапа "профиль"
 editButton.addEventListener("click", function () {
@@ -71,11 +67,10 @@ editButton.addEventListener("click", function () {
 
 //кнопка открытия попапа "карточки"
 cardAddButton.addEventListener("click", function () {
+    popupCardForm.reset();
     openPopup(cardPopup);
 });
 
-
 formCard.addEventListener("submit", addCardForm);
-
 
 enableValidation(validationConfig);

@@ -8,11 +8,8 @@ import {
     openPopup,
 } from './utils.js';
 
-
 const cardContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector("#cardTemplate").content;
-
-
 
 //создание карточки
 function createCard(placeInput, linkInput) {
@@ -51,3 +48,5 @@ export {
     createCard,
     addCard
 };
+//в index.js
+//в modal.js
