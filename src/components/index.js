@@ -9,6 +9,10 @@ import {
     cardAddButton,
     profilePopup,
     cardPopup,
+    avatarPopup,
+    avatarOpenButton,
+    avatarForm,
+    addAvatarForm,
     formCard,
     addCardForm,
     addProfileForm,
@@ -72,5 +76,14 @@ cardAddButton.addEventListener("click", function () {
 });
 
 formCard.addEventListener("submit", addCardForm);
+
+avatarOpenButton.addEventListener("click", function () {
+    openPopup(avatarPopup);
+});
+
+avatarForm.addEventListener("submit", addAvatarForm);
+
+
+
 
 enableValidation(validationConfig);

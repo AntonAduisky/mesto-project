@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
-
     <!-- <link rel="stylesheet" href="../src/pages/index.css" /> -->
 </head>
 
@@ -15,28 +14,21 @@
         <header class="header">
             <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="MESTO-светлое лого" />
         </header>
-        <main>
-            <section class="profile">
-                <img src="<%=require('./images/Avatar.jpg')%>" alt="фото пользователя" class="profile__photo" />
-                <div class="profile__profile-info">
-                    <h1 class="profile__title">Жак-Ив Кусто</h1>
-                    <button type="button" class="profile__edit-button"></button>
-                    <p class="profile__subtitle">Исследователь океана</p>
-                </div>
-                <button type="submit" class="profile__add-button"></button>
+        <main <section class="profile">
+            <button src="" type="button" class="profile__photo-button">
+                <div class="profile__photo-overlay"></div>
+            </button>
+            <div class="profile__profile-info">
+                <h1 class="profile__title">Жак-Ив Кусто</h1>
+                <button type="button" class="profile__edit-button"></button>
+                <p class="profile__subtitle">Исследователь океана</p>
+            </div>
+            <button type="submit" class="profile__add-button"></button>
             </section>
 
             <section class="elements">
-                <template id="cardTemplate">
-                    <div class="elements__element">
-                        <button class="elements__element-delete"></button>
-                        <img src="" alt="" class="elements__element-image" />
-                        <div class="elements__element-info">
-                            <h2 class="elements__element-title"></h2>
-                            <button type="button" class="elements__element-like"></button>
-                        </div>
-                    </div>
-                </template>
+
+                //template
             </section>
         </main>
 
@@ -71,12 +63,12 @@
                 <form name="popupCardForm" class="edit-form" data-form="cardButton" id="card-form" novalidate>
                     <h2 class="edit-form__title">Новое место</h2>
                     <label for="" class="popup__label">
-                        <input required name="card-name" type="text" minlength="2" maxlength="20"
+                        <input required name="card_name" type="text" minlength="2" maxlength="20"
                             class="edit-form__item" id="card__name" placeholder="Название" />
                         <span id="error-card__name" class="error-message popup__error popup__error_visible"></span>
                     </label>
                     <label for="" class="popup__label">
-                        <input required name="card-image" type="url" class="edit-form__item" id="card__image"
+                        <input required name="card_image" type="url" class="edit-form__item" id="card__image"
                             placeholder="Ссылка на картнку" />
                         <span id="error-card__image" class="error-message popup__error popup__error_visible"></span>
                     </label>
@@ -94,7 +86,37 @@
                 </figure>
             </div>
         </section>
-    </div>
+
+        <section class="popup" id="avatar-popup">
+            <div class="popup__container">
+                <button type="button" class="popup__close-button"></button>
+                <form id="avatar-form" class="edit-form" novalidate>
+                    <h2 class="edit-form__title">Обновить аватар</h2>
+                    <label for="" class="popup__label">
+                        <input id="avatar__image" type="url" class="edit-form__item" placeholder="Ссылка на аватар"
+                            required />
+                        <span id="error-avatar__image" class="error-message popup__error popup__error_visible"></span>
+                    </label>
+                    <button id="avatar_button" type="submit" class="edit-form__save-button">Сохранить</button>
+                </form>
+            </div>
+        </section>
+
+    </div>//wrapper-div
+
+    <template id="cardTemplate">
+        <div class="elements__element">
+            <button class="elements__element-delete"></button>
+            <img src="" alt="" class="elements__element-image" />
+            <div class="elements__element-info">
+                <h2 class="elements__element-title"></h2>
+                <div class="elements__element-like-wrapper">
+                    <button type="button" class="elements__element-like"></button>
+                    <span class="elements__element-like-count">0</span>
+                </div>
+            </div>
+        </div>
+    </template>
 
 </body>
 
