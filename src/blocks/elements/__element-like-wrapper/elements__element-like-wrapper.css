@@ -1,0 +1,5 @@
+.elements__element-like-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
