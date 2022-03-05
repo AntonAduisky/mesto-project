@@ -1,0 +1,24 @@
+.profile__photo-button {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-image: url(../../../images/Avatar.jpg);
+    border: none;
+    box-sizing: border-box;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.profile__photo-button:hover {
+    opacity: 1;
+}
+
+@media (max-width: 800px) {
+    .profile__photo {
+        margin: 0 auto;
+    }
+}
