@@ -56,18 +56,26 @@ const initialCards = [{
     },
 ];
 
+
+
 //отображение карточек из массива
 initialCards.forEach(function (card) {
     return addCard(createCard(card.name, card.link));
 });
 
+
+
 //слушатель событий на кнопке отправки формы
 formElement.addEventListener("submit", addProfileForm);
+
+
 
 //кнопка открытия попапа "профиль"
 editButton.addEventListener("click", function () {
     openPopup(profilePopup);
 });
+
+
 
 //кнопка открытия попапа "карточки"
 cardAddButton.addEventListener("click", function () {
@@ -75,14 +83,19 @@ cardAddButton.addEventListener("click", function () {
     openPopup(cardPopup);
 });
 
+
+
 formCard.addEventListener("submit", addCardForm);
+
+
 
 avatarOpenButton.addEventListener("click", function () {
     openPopup(avatarPopup);
 });
 
-avatarForm.addEventListener("submit", addAvatarForm);
 
+
+avatarForm.addEventListener("submit", addAvatarForm);
 
 
 

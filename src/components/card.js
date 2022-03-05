@@ -48,6 +48,20 @@ function addCard(card) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 export {
     cardContainer,
     cardTemplate,

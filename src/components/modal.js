@@ -10,39 +10,28 @@ import {
     validationConfig,
 } from './validate.js';
 
-// export default {
-//     profileData,
-//     cardData,
-//     createProfileData,
-//     createCardData,
-//     deleteCard,
-//     addLike,
-//     removeLike,
-//     createAvatar
-// }
-
+//api
 import API from './api.js';
-
+//profile
 const formElement = document.querySelector(".edit-form");
 const placeInput = document.querySelector("#card__name");
 const linkInput = document.querySelector("#card__image");
 const nameInput = formElement.querySelector("#username__title");
 const jobInput = formElement.querySelector("#username__activity");
-
+//popup`s
 const editButton = document.querySelector(".profile__edit-button");
 const cardAddButton = document.querySelector(".profile__add-button");
 const profilePopup = document.querySelector("#profile-popup");
 const cardPopup = document.querySelector("#card-popup");
 const imageContainer = document.querySelector(".elements");
-
+//avatar
 const avatarPopup = document.querySelector("#avatar-popup");
 const avatarInput = avatarPopup.querySelector("#avatar__image");
 const avatarForm = document.querySelector("#avatar-form");
 const avatarSubmitButton = avatarPopup.querySelector("#avatar_button");
 const avatarOpenButton = document.querySelector(".profile__photo-button");
 const avatarOpenImage = document.querySelector(".profile__photo-overlay");
-
-
+//card
 const formCard = document.querySelector("#card-form");
 const profile = document.querySelector(".profile");
 const profileTitle = profile.querySelector(".profile__title");
@@ -54,6 +43,9 @@ const popupPhoto = imagePopup.querySelector(".popup__image");
 const popupCardForm = document.querySelector('#card-form');
 
 const cardButton = document.querySelector('#card_button');
+
+
+
 
 //добавление новой карточки и закрытие попапа
 function addCardForm(evt) {
@@ -74,6 +66,8 @@ function addCardForm(evt) {
 };
 
 
+
+
 //добавление информации профиля и закрытие попапа
 function addProfileForm(evt) {
     evt.preventDefault();
@@ -89,6 +83,8 @@ function addProfileForm(evt) {
             cardAddButton.textContent = 'Сохранить';
         })
 };
+
+
 
 function addAvatarForm(evt) {
     evt.preventDefault();
@@ -107,6 +103,8 @@ function addAvatarForm(evt) {
             avatarSubmitButton.textContent = 'Сохранить';
         })
 }
+
+
 
 
 export {

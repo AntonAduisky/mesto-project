@@ -23,6 +23,7 @@ const profileData = () => {
         .then(res => parseResponse(res))
 }
 
+
 //функция создания данных профиля которые заносятся в форму
 const createProfileData = (username, activity) => {
     const profileInfo = {
@@ -37,6 +38,7 @@ const createProfileData = (username, activity) => {
         .then(res => parseResponse(res))
 }
 
+
 //функция получения данных карточки которые заносятся в форму
 const cardData = () => {
     return fetch(`${config.url}/cards`, {
@@ -44,6 +46,7 @@ const cardData = () => {
         })
         .then(res => parseResponse(res))
 }
+
 
 //функция создания данных карточки которые заносятся в форму
 const createCardData = (card_name, card_image) => {
@@ -59,6 +62,7 @@ const createCardData = (card_name, card_image) => {
         .then(res => parseResponse(res))
 }
 
+
 //удаление карточки
 const deleteCard = (cardId) => {
     return fetch(`${config.url}/cards/${cardId}`, {
@@ -67,6 +71,7 @@ const deleteCard = (cardId) => {
         })
         .then(res => parseResponse(res))
 }
+
 
 //добавление лайка на страницу
 const addLike = (cardId) => {
@@ -77,6 +82,7 @@ const addLike = (cardId) => {
         .then(res => parseResponse(res))
 }
 
+
 //функция удаления лайка со страницы
 const removeLike = (cardId) => {
     return fetch(`${config.url}/cards/likes/${cardId}`, {
@@ -85,6 +91,7 @@ const removeLike = (cardId) => {
         })
         .then(res => parseResponse(res))
 }
+
 
 //функция создания аватара
 const createAvatar = (img) => {
@@ -98,6 +105,7 @@ const createAvatar = (img) => {
         })
         .then(res => parseResponse(res))
 }
+
 
 export default {
     profileData,
