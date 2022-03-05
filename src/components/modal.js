@@ -33,6 +33,7 @@ const editButton = document.querySelector(".profile__edit-button");
 const cardAddButton = document.querySelector(".profile__add-button");
 const profilePopup = document.querySelector("#profile-popup");
 const cardPopup = document.querySelector("#card-popup");
+const imageContainer = document.querySelector(".elements");
 
 const avatarPopup = document.querySelector("#avatar-popup");
 const avatarInput = avatarPopup.querySelector("#avatar__image");
@@ -54,39 +55,57 @@ const popupCardForm = document.querySelector('#card-form');
 
 const cardButton = document.querySelector('#card_button');
 
-
-function waitAnswer(submit) {
-    submit.textContent = 'Сохранение...';
-}
-
 //добавление новой карточки и закрытие попапа
 function addCardForm(evt) {
     evt.preventDefault();
-    waitAnswer(cardButton);
-    addCard(createCard(placeInput.value, linkInput.value));
-    disableButton(cardButton, validationConfig);
-    popupCardForm.reset();
-    closePopup(cardPopup);
+    cardButton.textContent = 'Сохранение...'
+    API.createCardData(placeInput.value, linkInput.value)
+        .then(data => {
+            addCard(createCard(data.name, data.link));
+            // imageContainer.append(...)
+            disableButton(cardButton, validationConfig);
+            popupCardForm.reset();
+            closePopup(cardPopup);
+        })
+        .catch(err => console.log(err))
+        .finally(() => {
+            cardButton.textContent = 'Создать';
+        });
 };
 
 
 //добавление информации профиля и закрытие попапа
 function addProfileForm(evt) {
     evt.preventDefault();
-    waitAnswer(cardAddButton);
-    profileTitle.textContent = nameInput.value;
-    profileSubtitle.textContent = jobInput.value;
-    closePopup(profilePopup);
+    cardAddButton.textContent = 'Сохранение...';
+    API.createProfileData(nameInput.value, jobInput.value)
+        .then(data => {
+            profileTitle.textContent = data.name;
+            profileSubtitle.textContent = data.about;
+            closePopup(profilePopup);
+        })
+        .catch(err => console.log(err))
+        .finally(() => {
+            cardAddButton.textContent = 'Сохранить';
+        })
 };
 
 function addAvatarForm(evt) {
     evt.preventDefault();
-    waitAnswer(avatarSubmitButton);
-    // avatarOpenButton.src = avatarInput.value;
-    avatarOpenButton.style = `background-image: url(${evt.img})`;
-    disableButton(avatarSubmitButton, validationConfig);
-    avatarForm.reset();
-    closePopup(avatarPopup)
+    avatarSubmitButton.textContent = 'Сохранение...';
+    API.createAvatar(avatarInput.value)
+        .then(data => {
+            // avatarOpenButton.src = avatarInput.value;
+            avatarOpenButton.style = `background-image: url(${data.avatar})`;
+            avatarInput.value = '';
+            disableButton(avatarSubmitButton, validationConfig);
+            avatarForm.reset();
+            closePopup(avatarPopup)
+        })
+        .catch(err => console.log(err))
+        .finally(() => {
+            avatarSubmitButton.textContent = 'Сохранить';
+        })
 }
 
 
