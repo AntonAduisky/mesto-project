@@ -42,6 +42,9 @@
 @import url(../blocks/elements/__element-like/_active/elements__element-like_active.css);
 @import url(../blocks/elements/__element-like-count/elements__element-like-count.css);
 @import url(../blocks/elements/__element/elements__element.css);
+@import url(../blocks/elements/__list/elements__list.css);
+@import url(../blocks/elements/__item/elements__item.css);
+
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__logo/footer__logo.css);

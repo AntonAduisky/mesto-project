@@ -1,0 +1,21 @@
+.elements__item {
+    list-style: none;
+    position: relative;
+    max-width: 282px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+    .elements__item {
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 600px) {
+    .elements__item {
+        max-width: 282px;
+    }
+}

@@ -2,8 +2,8 @@ import {
     closePopup
 } from './utils.js';
 import {
-    addCard,
-    createCard
+    createCard,
+    addCard
 } from './card.js';
 import {
     disableButton,
@@ -23,14 +23,12 @@ const editButton = document.querySelector(".profile__edit-button");
 const cardAddButton = document.querySelector(".profile__add-button");
 const profilePopup = document.querySelector("#profile-popup");
 const cardPopup = document.querySelector("#card-popup");
-const imageContainer = document.querySelector(".elements");
 //avatar
 const avatarPopup = document.querySelector("#avatar-popup");
 const avatarInput = avatarPopup.querySelector("#avatar__image");
 const avatarForm = document.querySelector("#avatar-form");
 const avatarSubmitButton = avatarPopup.querySelector("#avatar_button");
 const avatarOpenButton = document.querySelector(".profile__photo-button");
-const avatarOpenImage = document.querySelector(".profile__photo-overlay");
 //card
 const formCard = document.querySelector("#card-form");
 const profile = document.querySelector(".profile");
@@ -44,35 +42,35 @@ const popupCardForm = document.querySelector('#card-form');
 
 const cardButton = document.querySelector('#card_button');
 
-
-
-
 //добавление новой карточки и закрытие попапа
 function addCardForm(evt) {
     evt.preventDefault();
-    cardButton.textContent = 'Сохранение...'
-    API.createCardData(placeInput.value, linkInput.value)
-        .then(data => {
-            addCard(createCard(data.name, data.link));
-            // imageContainer.append(...)
+    cardButton.textContent = 'Сохранение...';
+    const mestoInput = placeInput.value;
+    const urlInput = linkInput.value;
+    API.createCardData(mestoInput, urlInput)
+        .then(res => {
+            console.log(res);
+            addCard.prepend(createCard(res.name, res.link, res._id, res.likes, res.owner._id, res.owner));
             disableButton(cardButton, validationConfig);
             popupCardForm.reset();
             closePopup(cardPopup);
         })
-        .catch(err => console.log(err))
+        .catch((err) => {
+            console.log(err)
+        })
         .finally(() => {
             cardButton.textContent = 'Создать';
         });
 };
 
-
-
-
 //добавление информации профиля и закрытие попапа
 function addProfileForm(evt) {
     evt.preventDefault();
     cardAddButton.textContent = 'Сохранение...';
-    API.createProfileData(nameInput.value, jobInput.value)
+    const userInput = nameInput.value;
+    const workInput = jobInput.value;
+    API.createProfileData(userInput, workInput)
         .then(data => {
             profileTitle.textContent = data.name;
             profileSubtitle.textContent = data.about;
@@ -89,9 +87,9 @@ function addProfileForm(evt) {
 function addAvatarForm(evt) {
     evt.preventDefault();
     avatarSubmitButton.textContent = 'Сохранение...';
-    API.createAvatar(avatarInput.value)
+    const avaInput = avatarInput.value;
+    API.createAvatar(avaInput)
         .then(data => {
-            // avatarOpenButton.src = avatarInput.value;
             avatarOpenButton.style = `background-image: url(${data.avatar})`;
             avatarInput.value = '';
             disableButton(avatarSubmitButton, validationConfig);
