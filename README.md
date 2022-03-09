@@ -9,7 +9,6 @@ ___
 - html5 / css3 (GridLayout & Flexbox / БЭМ)
 - JavaScript (код поделен на модули)
 - сборщик Webpack (втч : минификация HTML,CSS,JS)
-
 ---
 #### Планы по доработке: 
 - ООП

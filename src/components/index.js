@@ -16,7 +16,9 @@ import {
     formCard,
     addCardForm,
     addProfileForm,
-    popupCardForm
+    popupCardForm,
+    profileTitle,
+    profileSubtitle
 }
 from './modal.js';
 import {
@@ -29,53 +31,15 @@ import {
     addCard
 } from './card.js';
 
-//массив обьектов карточек отображаемых на странице
-const initialCards = [{
-        name: "Архыз",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-    },
-    {
-        name: "Челябинская область",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-    },
-    {
-        name: "Иваново",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-    },
-    {
-        name: "Камчатка",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-    },
-    {
-        name: "Холмогорский район",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-    },
-    {
-        name: "Байкал",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-    },
-];
-
-
-
-//отображение карточек из массива
-initialCards.forEach(function (card) {
-    return addCard(createCard(card.name, card.link));
-});
-
-
+import API from './api.js';
 
 //слушатель событий на кнопке отправки формы
 formElement.addEventListener("submit", addProfileForm);
-
-
 
 //кнопка открытия попапа "профиль"
 editButton.addEventListener("click", function () {
     openPopup(profilePopup);
 });
-
-
 
 //кнопка открытия попапа "карточки"
 cardAddButton.addEventListener("click", function () {
@@ -83,20 +47,29 @@ cardAddButton.addEventListener("click", function () {
     openPopup(cardPopup);
 });
 
-
-
 formCard.addEventListener("submit", addCardForm);
 
-
-
 avatarOpenButton.addEventListener("click", function () {
+    avatarForm.reset();
     openPopup(avatarPopup);
 });
 
-
-
 avatarForm.addEventListener("submit", addAvatarForm);
 
+Promise.all([API.profileData(), API.cardData()])
+    .then(([user, cards]) => {
+        console.log(user);
+        profileTitle.textContent = user.name;
+        profileSubtitle.textContent = user.about;
+        avatarOpenButton.style = `background-image: url(${user.avatar})`;
 
+        const newCards = cards.map(function (data) {
+            return createCard(data.name, data.link, data._id, data.likes, user._id, data.owner)
+        });
+        addCard.prepend(...newCards);
+    })
+    .catch((err) => {
+        console.log(err)
+    });
 
 enableValidation(validationConfig);
