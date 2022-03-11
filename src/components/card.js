@@ -42,7 +42,6 @@ function createCard(placeInput, linkInput, id, likes, userId, owner, removeCardH
     if (likes.some(likedUser => likedUser._id === userId)) {
         likeButton.classList.add('elements__element-like_active');
     }
-
     if (userId !== owner._id) {
         deleteCardButton.remove();
     }
