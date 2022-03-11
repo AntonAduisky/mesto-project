@@ -43,13 +43,14 @@
                 <form name="popupForm" class="edit-form" data-form="profileButton" novalidate>
                     <h2 class="edit-form__title">Редактировать профиль</h2>
                     <label for="" class="popup__label">
-                        <input required name="username" type="text" minlength="2" maxlength="20" class="edit-form__item"
-                            id="username__title" placeholder="Жак-Ив Кусто" />
+                        <input required name="username" type="text" minlength="2" maxlength="24" class="edit-form__item"
+                            id="username__title" placeholder="Имя и Фамилия" aria-label="Поле ввода имя и фамилия" />
                         <span id="error-username__title" class="error-message popup__error popup__error_visible"></span>
                     </label>
                     <label for="" class="popup__label">
-                        <input required name="activity" type="text" minlength="2" maxlength="20" class="edit-form__item"
-                            id="username__activity" placeholder="Исследователь океана" />
+                        <input required name="activity" type="text" minlength="2" maxlength="24" class="edit-form__item"
+                            id="username__activity" placeholder="Вид деятельности"
+                            aria-label="Поле ввода вида деятельности" />
                         <span id="error-username__activity"
                             class="error-message popup__error popup__error_visible"></span>
                     </label>
@@ -64,13 +65,13 @@
                 <form name="popupCardForm" class="edit-form" data-form="cardButton" id="card-form" novalidate>
                     <h2 class="edit-form__title">Новое место</h2>
                     <label for="" class="popup__label">
-                        <input required name="cardName" type="text" minlength="2" maxlength="20" class="edit-form__item"
-                            id="card__name" placeholder="Название" />
+                        <input required name="cardName" type="text" minlength="2" maxlength="24" class="edit-form__item"
+                            id="card__name" placeholder="Название" aria-label="Поле ввода названия места" />
                         <span id="error-card__name" class="error-message popup__error popup__error_visible"></span>
                     </label>
                     <label for="" class="popup__label">
                         <input required name="cardImage" type="url" class="edit-form__item" id="card__image"
-                            placeholder="Ссылка на картнку" />
+                            placeholder="Ссылка на картнку" aria-label="Поле ввода ссылки на картинку" />
                         <span id="error-card__image" class="error-message popup__error popup__error_visible"></span>
                     </label>
                     <button id="card_button" type="submit" class="edit-form__save-button" disabled>Создать</button>
@@ -95,7 +96,7 @@
                     <h2 class="edit-form__title">Обновить аватар</h2>
                     <label for="" class="popup__label">
                         <input id="avatar__image" type="url" class="edit-form__item" placeholder="Ссылка на аватар"
-                            required />
+                            aria-label="Поле ввода ссылки на аватар" required />
                         <span id="error-avatar__image" class="error-message popup__error popup__error_visible"></span>
                     </label>
                     <button id="avatar_button" type="submit" class="edit-form__save-button">Сохранить</button>

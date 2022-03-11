@@ -2,12 +2,17 @@
     width: 282px;
     height: 282px;
     object-fit: cover;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    display: block;
 }
+
 @media (max-width: 900px) {
     .elements__element-image {
         width: 320px;
     }
 }
+
 @media (max-width: 600px) {
     .elements__element-image {
         width: 282px;

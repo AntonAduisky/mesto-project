@@ -1,32 +1,36 @@
 import {
-    popupPhoto,
-    popupFigcaption,
-    imagePopup,
-} from './modal.js'
+    openPopup,
+} from './modal.js';
 
 import {
-    openPopup,
-} from './utils.js';
-
-import API from './api.js';
+    popupFigcaption,
+    popupPhoto,
+    imagePopup
+} from './index.js';
 
 const cardContainer = document.querySelector(".elements");
 const cardTemplate = document.querySelector("#cardTemplate").content;
 const addCard = document.querySelector(".elements__list");
 
-//удаление карточки
-function deleteCards(evt) {
-    API.deleteCard(evt.target.closest(".elements__item").dataset.id)
-        .then(() => {
-            evt.target.closest(".elements__item").remove();
-        })
-        .catch((err) => {
-            console.log(err);
-        });
+const removeCardElement = (cardId) => {
+    const cardElement = document.querySelector(`.elements__item[data-id="${cardId}"]`);
+    cardElement.remove();
+}
+
+const updateLikeCount = (likeCountElement, countOfLikes) => {
+    likeCountElement.textContent = countOfLikes;
+}
+
+const updateLikeButton = (likeButtonElement) => {
+    if (likeButtonElement.classList.contains('elements__element-like_active')) {
+        likeButtonElement.classList.remove('elements__element-like_active')
+    } else {
+        likeButtonElement.classList.add('elements__element-like_active');
+    }
 }
 
 //создание карточки
-function createCard(placeInput, linkInput, id, likes, userId, owner) {
+function createCard(placeInput, linkInput, id, likes, userId, owner, removeCardHandler, likeCardHandler) {
 
     const card = cardTemplate.querySelector(".elements__item").cloneNode(true);
     const title = card.querySelector(".elements__element-title");
@@ -34,6 +38,10 @@ function createCard(placeInput, linkInput, id, likes, userId, owner) {
     const likeButton = card.querySelector(".elements__element-like");
     const deleteCardButton = card.querySelector(".elements__element-delete");
     const likeCountElement = card.querySelector('.elements__element-like-count');
+
+    if (likes.some(likedUser => likedUser._id === userId)) {
+        likeButton.classList.add('elements__element-like_active');
+    }
 
     if (userId !== owner._id) {
         deleteCardButton.remove();
@@ -45,25 +53,15 @@ function createCard(placeInput, linkInput, id, likes, userId, owner) {
     card.dataset.id = id;
     likeCountElement.textContent = likes.length;
 
-    likeButton.addEventListener("click", (evt) => {
-        if (evt.target.classList.contains('elements__element-like_active')) {
-            API.removeLike(evt.target.closest(".elements__item").dataset.id)
-                .then((res) => {
-                    evt.target.classList.remove('elements__element-like_active')
-                    likeCountElement.textContent = res.likes.length;
-                })
-                .catch(err => console.log(err))
-        } else {
-            API.addLike(evt.target.closest(".elements__item").dataset.id)
-                .then((res) => {
-                    evt.target.classList.add('elements__element-like_active')
-                    likeCountElement.textContent = res.likes.length;
-                })
-                .catch(err => console.log(err))
-        }
-    });
-    //удаление карточки
-    deleteCardButton.addEventListener("click", deleteCards);
+    deleteCardButton.addEventListener('click', () => removeCardHandler(id).then(() => removeCardElement(id)));
+    likeButton.addEventListener('click',
+        () => likeCardHandler(id, userId)
+        .then(cardData => {
+            const countOfLikes = cardData.likes.length;
+            updateLikeCount(likeCountElement, countOfLikes)
+            updateLikeButton(likeButton)
+        }));
+
     //при клике на карточку развернуть содержимое
     image.addEventListener("click", function () {
         popupPhoto.src = linkInput;
