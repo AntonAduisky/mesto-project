@@ -95,5 +95,6 @@ export {
     validationConfig,
     checkInputValidity,
     enableValidation,
-    disableButton
+    disableButton,
+    toggleButtonState
 }; //в index.js
