@@ -16,10 +16,11 @@ from './modal.js';
 
 import {
     createCard,
-    addCard
+    addCard,
+    removeCardElement,
+    updateLikeCount,
+    updateLikeButton
 } from './card.js';
-
-
 //--------------------------------------------------------------------------constants-----------------------------------------------------------------------------
 //profile
 const formElement = document.querySelector(".edit-form");
@@ -95,7 +96,7 @@ function addCardForm(evt) {
     const urlInput = linkInput.value;
     API.createCardData(mestoInput, urlInput)
         .then(res => {
-            addCard.prepend(createCard(res.name, res.link, res._id, res.likes, res.owner._id, res.owner));
+            addCard.prepend(createCard(res.name, res.link, res._id, res.likes, res.owner._id, res.owner, removeCardHandler, likeCardHandler));
             disableButton(cardButton, validationConfig);
             popupCardForm.reset();
             closePopup(cardPopup);
@@ -139,17 +140,30 @@ avatarForm.addEventListener("submit", addAvatarForm);
 //----------------------------------------------------------------------like & delete card functions-------------------------------------------------------------------------
 // функция для обработки нажатия лайка
 const likeCardHandler = (cardId, userId) => {
-    return API.cardData()
+    API.cardData()
         .then(allCards => allCards.find(card => card._id === cardId))
         .then(card => card.likes
             .some(likedUser => likedUser._id === userId) ?
             API.removeLike(cardId) :
-            API.addLike(cardId));
+            API.addLike(cardId))
+        .then(cardData => {
+            const countOfLikes = cardData.likes.length;
+            updateLikeCount(cardId, countOfLikes)
+            updateLikeButton(cardId)
+        })
+        .catch((err) => {
+            console.log(err)
+        });
 }
+
 
 // функция для обработки нажатия на кнопку удаления
 const removeCardHandler = (cardId) => {
-    return API.deleteCard(cardId);
+    API.deleteCard(cardId)
+        .then(() => removeCardElement(cardId))
+        .catch((err) => {
+            console.log(err)
+        });
 }
 
 //-----------------------------------------------------------------------promise-------------------------------------------------------------------------------------------
@@ -172,7 +186,6 @@ enableValidation(validationConfig);
 
 
 export {
-    removeCardHandler,
     likeCardHandler,
     popupFigcaption,
     popupPhoto,
